@@ -1,0 +1,405 @@
+/* Redline Ledger — government-document editorial, elevated.
+   Light mode is primary: this audience prints things. */
+
+:root {
+  /* Palette — color is semantic, never decorative. */
+  --color-paper: oklch(97% 0.01 90);
+  --color-paper-raised: oklch(99% 0.005 90);
+  --color-ink: oklch(25% 0.05 260);
+  --color-ink-muted: oklch(45% 0.03 260);
+  --color-rule: oklch(85% 0.015 90);
+  --color-rule-strong: oklch(35% 0.04 260);
+  --color-redline: oklch(50% 0.19 25);
+  --color-redline-wash: oklch(95% 0.025 25);
+  --color-additive: oklch(48% 0.12 150);
+  --color-additive-wash: oklch(95% 0.035 150);
+  --color-amber: oklch(55% 0.13 75);
+  --color-amber-wash: oklch(94% 0.05 85);
+
+  /* Typography — serif for dossier prose, sans for chrome, mono for the ledger. */
+  --font-serif: 'Source Serif 4', 'Source Serif Pro', Georgia, 'Times New Roman', serif;
+  --font-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --text-base: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  --text-headline: clamp(1.9rem, 1.2rem + 2.4vw, 3.1rem);
+  --text-section: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+  --text-small: 0.8125rem;
+  --text-micro: 0.71875rem;
+
+  --space-section: clamp(3rem, 2rem + 3vw, 5.5rem);
+  --space-block: clamp(1.25rem, 1rem + 1vw, 2rem);
+  --measure: 72ch;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--color-ink);
+  text-decoration-color: var(--color-redline);
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--color-redline);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-redline);
+  outline-offset: 3px;
+}
+
+/* ---- Masthead ---------------------------------------------------------- */
+
+.masthead {
+  border-bottom: 3px double var(--color-rule-strong);
+  padding: var(--space-block) clamp(1rem, 4vw, 4rem) 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 2rem;
+}
+
+.masthead-wordmark {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+}
+
+.masthead-meta {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+  letter-spacing: 0.06em;
+}
+
+.digest-title {
+  font-family: var(--font-serif);
+  font-size: var(--text-headline);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.digest-lede {
+  max-width: var(--measure);
+  color: var(--color-ink-muted);
+  margin: 0.75rem 0 0;
+}
+
+.page {
+  padding: var(--space-section) clamp(1rem, 4vw, 4rem);
+  max-width: 70rem;
+  margin-inline: auto;
+}
+
+/* ---- Sections ---------------------------------------------------------- */
+
+.digest-section {
+  margin-top: var(--space-section);
+}
+
+.section-kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  border-bottom: 1px solid var(--color-rule-strong);
+  padding-bottom: 0.5rem;
+}
+
+.section-number {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--color-redline);
+  letter-spacing: 0.2em;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: var(--text-section);
+  font-weight: 600;
+  margin: 0;
+}
+
+.coverage {
+  font-family: var(--font-serif);
+  font-size: 1.05em;
+  font-style: italic;
+  max-width: var(--measure);
+  margin: var(--space-block) 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--color-rule-strong);
+}
+
+.coverage--degraded {
+  border-left-color: var(--color-amber);
+  background: var(--color-amber-wash);
+  padding: 0.75rem 1rem;
+}
+
+/* ---- Tracked bids ------------------------------------------------------ */
+
+.bid {
+  margin: var(--space-block) 0;
+  border: 1px solid var(--color-rule);
+  background: var(--color-paper-raised);
+}
+
+.bid-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.bid-number {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.bid-title {
+  font-family: var(--font-serif);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin: 0;
+  flex: 1 1 16rem;
+}
+
+.badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid currentcolor;
+  white-space: nowrap;
+}
+
+.badge--changed {
+  color: var(--color-redline);
+  background: var(--color-redline-wash);
+}
+
+.badge--unchanged {
+  color: var(--color-ink-muted);
+}
+
+.badge--degraded {
+  color: var(--color-amber);
+  background: var(--color-amber-wash);
+}
+
+.bid-body {
+  padding: 1rem 1.25rem 1.25rem;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.summary {
+  font-family: var(--font-serif);
+  max-width: var(--measure);
+  margin: 0 0 1.25rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--color-additive);
+  background: var(--color-additive-wash);
+}
+
+.summary-verification {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+  margin-top: 0.5rem;
+}
+
+.summary--blocked {
+  border-left-color: var(--color-redline);
+  background: var(--color-redline-wash);
+}
+
+/* ---- The red-line ------------------------------------------------------ */
+
+.redline {
+  border-top: 1px solid var(--color-rule);
+  padding-top: 1rem;
+}
+
+.redline-caption {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+}
+
+.hunk {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  gap: 1rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px dotted var(--color-rule);
+}
+
+.hunk:last-child {
+  border-bottom: none;
+}
+
+.hunk-lines {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+  padding-top: 0.2rem;
+}
+
+.hunk-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-small);
+  line-height: 1.7;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  margin: 0;
+}
+
+/* Legal red-line marks, inline in document flow — not unified diffs. */
+del {
+  color: var(--color-redline);
+  background: var(--color-redline-wash);
+  text-decoration: line-through;
+  text-decoration-thickness: 1.5px;
+}
+
+ins {
+  color: var(--color-additive);
+  background: var(--color-additive-wash);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.15em;
+}
+
+/* ---- Matches table ----------------------------------------------------- */
+
+.matches-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--space-block);
+  font-size: var(--text-small);
+}
+
+.matches-table caption {
+  caption-side: bottom;
+  text-align: left;
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+  padding-top: 0.625rem;
+}
+
+.matches-table th {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  text-align: left;
+  color: var(--color-ink-muted);
+  border-bottom: 1px solid var(--color-rule-strong);
+  padding: 0.5rem 0.75rem 0.5rem 0;
+}
+
+.matches-table td {
+  border-bottom: 1px solid var(--color-rule);
+  padding: 0.7rem 0.75rem 0.7rem 0;
+  vertical-align: top;
+}
+
+.matches-table .mono {
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.match-score {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--color-redline);
+}
+
+.match-title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+}
+
+/* ---- Monitoring footer -------------------------------------------------- */
+
+.sources {
+  list-style: none;
+  margin: var(--space-block) 0 0;
+  padding: 0;
+}
+
+.sources li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid var(--color-rule);
+}
+
+.source-label {
+  flex: 1 1 14rem;
+}
+
+.source-meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+}
+
+.colophon {
+  margin-top: var(--space-section);
+  border-top: 3px double var(--color-rule-strong);
+  padding: 1.25rem clamp(1rem, 4vw, 4rem) 3rem;
+  font-size: var(--text-micro);
+  color: var(--color-ink-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 540px) {
+  .hunk {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
