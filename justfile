@@ -60,6 +60,14 @@ lint: _guard
 format: _guard
     pnpm format
 
+# verify formatting (prettier --check); CI gate
+format-check: _guard
+    pnpm run format:check
+
+# audit dependencies for high+ severity advisories; CI gate
+audit: _guard
+    pnpm audit --audit-level=high
+
 # Type-check all packages (tsc --noEmit)
 typecheck: _guard
     pnpm typecheck
@@ -69,4 +77,4 @@ build: _guard
     pnpm build
 
 # Full CI gate: lint, typecheck, test, build — must pass before any merge
-ci: lint typecheck test build
+ci: lint format-check typecheck test build audit
