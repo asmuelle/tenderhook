@@ -1,0 +1,42 @@
+# Tenderhook
+
+> Never miss a winnable bid again. Tenderhook is a daily procurement radar for SMB government contractors that monitors SAM.gov, state & local portals, and buyer budget documents — matching tenders to your real capabilities, red-lining every amendment, and flagging incumbent contracts expiring 6–12 months out.
+
+## What it is
+
+Tenderhook runs a daily agent over SAM.gov, state & local portals, and buyer budget documents — matching tenders to what your firm actually does, red-lining every amendment, and flagging incumbent contracts before they re-compete. It is a BD system of record, not just another bid-match newsletter: living dossiers per opportunity and per agency, deterministic amendment diffs, and a pre-RFP layer. It is pre-launch and not affiliated with, endorsed by, or operated by any government agency.
+
+## Who it's for
+
+SMB government contractors and BD/capture teams — priced for sub-$10M SMB contractors who want self-serve, not enterprise procurement. It sits between enterprise tools (like Deltek GovWin IQ, which are quote-only at five figures a year) and free keyword-based portal alerts.
+
+## Key features
+
+- Semantic matching: embeddings rank every solicitation against your capability profile to produce a fit score (a relevance ranking and triage aid, not a probability of award).
+- Amendment red-lines: deterministic, checksum-based detection — poll the source of record, hash it, and diff the text; an LLM only summarizes what changed, it never decides whether something changed.
+- Living dossiers: one page per opportunity (full amendment history, summarized Q&A addenda) and per agency (buying history, incumbent map, contracts coming up for re-compete).
+- Pre-RFP radar: budget documents, council minutes, and capital-improvement plans telegraph solicitations months early; award data reveals incumbents nearing expiration.
+- Where it lives: a morning email digest leads, plus a web pipeline board with agency dossiers and amendment red-lines, and Slack alerts on deadline changes for tracked bids.
+- Defensible record: every claim deep-links to the source document and page anchor, with quotes string-verified against extracted text.
+- Sources: SAM.gov, grants.gov, EU TED, FPDS/USASpending, state & city portals, council minutes, budget & CIP docs.
+
+## Pricing
+
+Self-serve tiers, priced for SMB BD teams. Monthly equivalents shown; annual billing is the norm. Final pricing confirmed at launch.
+
+- Solo — $149/mo ($1,490 billed annually): 3 capability profiles, track up to 50 buyers, amendment red-lining & deadline alerts, daily email digest.
+- Team — $349/mo ($3,490 billed annually, 5 seats): 10 capability profiles · 5 seats, pre-RFP radar & incumbent-expiration alerts, pipeline board & agency dossiers, Slack deadline alerts.
+- Capture — $699/mo ($6,990 billed annually): everything in Team, auto-drafted capture briefs, API & CRM export, agency dossier synthesis.
+
+Add-ons: extra seats +$49/seat/mo; SLED state packs +$50/mo each; 14-day trial seeded with your NAICS profile.
+
+## FAQ highlights
+
+- Coverage: federal from SAM.gov extracts and the Get Opportunities API, plus grants.gov and EU TED, with FPDS/USASpending powering the award and incumbent-expiration graph. SLED coverage is built portal by portal (Bonfire, BidNet Direct, Periscope, OpenGov, Ionwave, PlanetBids first), partial at launch and expanding. Portals that require credentials or violate terms are not scraped.
+- Amendment detection: deterministic (poll, checksum, diff); an LLM only summarizes changes. It cannot guarantee 100% recall, so it is a monitoring aid — always verify closing dates and requirements with the issuing agency.
+- Fit score: a relevance ranking to help triage, not a guarantee of winning; bid/no-bid stays with your team.
+- Vs. competitors: aims to sit between quote-only enterprise tools and noisy free alerts, differentiating on deterministic amendment red-lining, pre-RFP incumbent-expiration signal, and capability-based semantic matching.
+
+## Link
+
+- Tenderhook: https://asmuelle.github.io/tenderhook/
