@@ -27,7 +27,7 @@ jobs:
       DATABASE_URL: postgres://tenderhook:tenderhook@localhost:5432/tenderhook_test
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install just
         uses: extractions/setup-just@v3
