@@ -1,5 +1,7 @@
 # Tenderhook
 
+[![CI](https://github.com/asmuelle/tenderhook/actions/workflows/ci.yml/badge.svg)](https://github.com/asmuelle/tenderhook/actions/workflows/ci.yml)
+
 > Procurement radar for SMB government contractors: a daily agent over SAM.gov, state/local portals, and buyer budget documents maintains living dossiers per agency and opportunity — semantically matching tenders to your real capabilities, red-lining every amendment, and flagging incumbent contracts expiring 6-12 months out.
 
 **Category:** LLM wiki / auto-research (living documents + delta alerts, à la Karpathy)
