@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "drizzle-orm": "^0.45.2",
-    "pg": "^8.22.0"
+    "pg": "^8.23.0"
   },
   "devDependencies": {
     "@types/node": "^26.1.0",
-    "@types/pg": "^8.15.0",
+    "@types/pg": "^8.21.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9"
   }
